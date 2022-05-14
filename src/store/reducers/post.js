@@ -1,6 +1,6 @@
 import {
-    //GET_POSTS_SUCCESS,
-    //GET_POSTS_FAIL,
+    GET_POSTS_SUCCESS,
+    GET_POSTS_FAIL,
 
     GET_POST_DETAIL_SUCCESS,
     GET_POST_DETAIL_FAIL,
@@ -11,6 +11,7 @@ import {
 
 const initialState = {
     loading: false,
+    posts: null,
     post_detail: null,
 }
 
@@ -18,6 +19,15 @@ const postReducer = (state = initialState, action) => {
     const { type, payload } = action
 
     switch (type) {
+        case GET_POSTS_SUCCESS:
+            return {
+                ...state,
+                posts: payload
+            }
+        case GET_POSTS_FAIL:
+            return {
+                ...state,
+            }
         case GET_POST_DETAIL_SUCCESS:
             return {
                 ...state,

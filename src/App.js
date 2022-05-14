@@ -14,7 +14,7 @@ export default function App() {
           element={<Home />}
         />
         <Route
-          path="/posts/:id"
+          path="/posts/:slug"
           element={<Post />}
         />
       </Routes>
