@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux"
 import { useParams } from "react-router-dom";
-import { Sidebar } from "../../components/Sidebar";
 import { getCategoryPosts } from "../../store/actions/post"
 import styled from "styled-components"
 
@@ -23,20 +22,15 @@ export const CategoryPost = () => {
     return (
         posts ? (
             <Container>
-                <MainContents>
+                <ul>
                     {posts.map((post) => {
                         return (
-                            <ul>
-                                <li>
-                                    <a href={`/posts/${post.slug}`}>{post.title}</a>
-                                </li>
-                            </ul>
+                            <li key={post.id}>
+                                <a href={`/posts/${post.slug}`}>{post.title}</a>
+                            </li>
                         )
                     })}
-                </MainContents>
-                <SubContents>
-                    <Sidebar />
-                </SubContents>
+                </ul>
             </Container>
         ) : (
             <h1>Loading...</h1>
@@ -47,20 +41,12 @@ export const CategoryPost = () => {
 export default CategoryPost
 
 const Container = styled.div`
-    display: flex;
-    width: 100%;
-`
-const MainContents = styled.div`
-    width: 75%;
-        ul {
-            list-style: none;
-            li {
-                a {
-                    text-decoration: none;
-                }
+    ul {
+        list-style: none;
+        li {
+            a {
+                text-decoration: none;
             }
         }
-`
-const SubContents = styled.div`
-    width: 25%;
+    }
 `

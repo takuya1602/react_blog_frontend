@@ -7,7 +7,6 @@ import {
 
     SET_POST_LOADING,
     REMOVE_POST_LOADING,
-    GET_CATEGORIES_FAIL,
 } from "./types"
 
 const API_URL = process.env.REACT_APP_API_URL
@@ -92,7 +91,7 @@ export const getCategoryPosts = (categorySlug) => async (dispatch) => {
     })
 
     try {
-        const res = await fetch(`${API_URL}/posts?category-name=${categorySlug}`, {
+        const res = await fetch(`${API_URL}/posts/?category-name=${categorySlug}`, {
             mode: "cors",
             method: "GET",
             headers: {

@@ -1,10 +1,7 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux"
 import { getPosts } from "../../store/actions/post";
-import { Sidebar } from "../../components/Sidebar";
 import styled from "styled-components"
-
-const API_URL = process.env.REACT_APP_API_URL
 
 const Home = () => {
     const dispatch = useDispatch()
@@ -22,20 +19,15 @@ const Home = () => {
     return (
         posts ? (
             <Container>
-                <MainContents>
+                <ul>
                     {posts.map((post) => {
                         return (
-                            <ul>
-                                <li>
-                                    <a href={`/posts/${post.slug}`}>{post.title}</a>
-                                </li>
-                            </ul>
+                            <li key={post.id}>
+                                <a href={`/posts/${post.slug}`}>{post.title}</a>
+                            </li>
                         )
                     })}
-                </MainContents>
-                <SubContents>
-                    <Sidebar />
-                </SubContents>
+                </ul>
             </Container>
         ) : (
             <h1>Loading...</h1>
@@ -46,22 +38,12 @@ const Home = () => {
 export default Home
 
 const Container = styled.div`
-    display: flex;
-    width: 100%;
-`
-
-const MainContents = styled.div`
-    width: 75%;
-        ul {
-            list-style: none;
-            li {
-                a {
-                    text-decoration: none;
-                }
+    ul {
+        list-style: none;
+        li {
+            a {
+                text-decoration: none;
             }
         }
-`
-
-const SubContents = styled.div`
-    width: 25%;
+    }
 `

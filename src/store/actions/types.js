@@ -20,3 +20,13 @@ export const GET_CATEGORIES_FAIL = "GET_CATEGORIES_FAIL"
 
 export const SET_CATEGORY_LOADING = "SET_CATEGORY_LOADING"
 export const REMOVE_CATEGORY_LOADING = "REMOVE_CATEGORY_LOADING"
+
+// Authentication
+
+// Sign in
+export const SIGN_IN_SUCCESS = "SIGN_IN_SUCCESS"
+export const SIGN_IN_FAIL = "SIGN_IN_FAIL"
+
+// Loading authentication
+export const SET_AUTH_LOADING = "SET_AUTH_LOADING"
+export const REMOVE_AUTH_LOADING = "EMOVE_AUTH_LOADING"

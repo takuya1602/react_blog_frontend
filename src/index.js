@@ -10,12 +10,14 @@ import categoryReducer from './store/reducers/category';
 
 import './index.css';
 import App from './App';
+import authReducer from './store/reducers/auth';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 const rootReducer = combineReducers({
   post: postReducer,
   category: categoryReducer,
+  auth: authReducer,
 })
 
 const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)))
