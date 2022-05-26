@@ -1,6 +1,7 @@
-
+import { useSelector } from "react-redux"
 
 export const Admin = () => {
-    const token = useSelector((state) => state.auth.token)
-
+    return (
+        <h1>This is admin page</h1>
+    )
 }

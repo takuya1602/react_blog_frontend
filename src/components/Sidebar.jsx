@@ -31,7 +31,7 @@ export const Sidebar = () => {
                 </ul>
             </Container>
         ) : (
-            <h1>Loading</h1>
+            <></>
         )
     )
 }

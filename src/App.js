@@ -7,58 +7,28 @@ import { Header } from "./components/Header";
 import { Sidebar } from "./components/Sidebar";
 import styled from "styled-components"
 import { SignIn } from "./routes/admin/SignIn";
+import { AdminLayout } from "./routes/layout/AdminLayout";
+import { Admin } from "./routes/admin/Admin";
 import { useSelector } from "react-redux";
+import { DefaulLayout } from "./routes/layout/DefaulLayout";
 
 export default function App() {
   const token = useSelector((state) => state.auth.token)
 
   return (
     <>
-      <Header />
-      <Container>
-        <MainContents>
-          <BrowserRouter>
-            <Routes>
-              <Route
-                index
-                element={<Home />}
-              />
-              <Route
-                path="/posts/:slug"
-                element={<Post />}
-              />
-              <Route
-                path="/categories/:slug"
-                element={<CategoryPost />}
-              />
-              <Route
-                path="/admin/"
-                element={<Admin />}
-              />
-              <Route
-                path="/login/"
-                element={<SignIn />}
-              />
-            </Routes>
-          </BrowserRouter>
-        </MainContents>
-        <SubContents>
-          <Sidebar />
-        </SubContents>
-      </Container>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<DefaulLayout />}>
+            <Route index element={<Home />} />
+            <Route path="categories/:slug" element={<CategoryPost />} />
+            <Route path="posts/:slug" element={<Post />} />
+          </Route>
+          <Route path="admin" element={<AdminLayout />}>
+            <Route index element={<Admin />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
     </>
   );
 }
-
-const Container = styled.div`
-    display: flex;
-    width: 100%;
-`
-
-const MainContents = styled.div`
-    width: 75%;
-`
-
-const SubContents = styled.div`
-    width: 25%;
-`
