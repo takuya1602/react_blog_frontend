@@ -6,6 +6,7 @@ import { composeWithDevTools } from "redux-devtools-extension/developmentOnly";
 import { Provider } from "react-redux"
 import thunk from "redux-thunk"
 import postReducer from "./store/reducers/post";
+import categoryReducer from './store/reducers/category';
 
 import './index.css';
 import App from './App';
@@ -14,6 +15,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 
 const rootReducer = combineReducers({
   post: postReducer,
+  category: categoryReducer,
 })
 
 const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)))

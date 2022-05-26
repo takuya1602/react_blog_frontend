@@ -1,13 +1,12 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Header } from "./components/Header";
+import CategoryPost from "./routes/category_post/CategoryPost";
 import Home from "./routes/home/Home";
 import Post from "./routes/post/Post";
 
 export default function App() {
   return (
     <BrowserRouter>
-      <Header />
       <Routes>
         <Route
           index
@@ -16,6 +15,10 @@ export default function App() {
         <Route
           path="/posts/:slug"
           element={<Post />}
+        />
+        <Route
+          path="/categories/:slug"
+          element={<CategoryPost />}
         />
       </Routes>
     </BrowserRouter>

@@ -7,6 +7,7 @@ import {
 
     SET_POST_LOADING,
     REMOVE_POST_LOADING,
+    GET_CATEGORIES_FAIL,
 } from "./types"
 
 const API_URL = process.env.REACT_APP_API_URL
@@ -77,6 +78,43 @@ export const getPostDetail = (slug) => async (dispatch) => {
     } catch (err) {
         dispatch({
             type: GET_POST_DETAIL_FAIL,
+        })
+    }
+
+    dispatch({
+        type: REMOVE_POST_LOADING,
+    })
+}
+
+export const getCategoryPosts = (categorySlug) => async (dispatch) => {
+    dispatch({
+        type: SET_POST_LOADING,
+    })
+
+    try {
+        const res = await fetch(`${API_URL}/posts?category-name=${categorySlug}`, {
+            mode: "cors",
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+            },
+        })
+
+        const data = await res.json()
+
+        if (res.status === 200) {
+            dispatch({
+                type: GET_POSTS_SUCCESS,
+                payload: data,
+            })
+        } else {
+            dispatch({
+                type: GET_POSTS_FAIL,
+            })
+        }
+    } catch (err) {
+        dispatch({
+            type: GET_POSTS_FAIL,
         })
     }
 

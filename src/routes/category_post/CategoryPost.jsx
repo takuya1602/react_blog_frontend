@@ -1,19 +1,20 @@
 import React, { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux"
-import { getPosts } from "../../store/actions/post";
+import { useDispatch, useSelector } from "react-redux"
+import { useParams } from "react-router-dom";
 import { Sidebar } from "../../components/Sidebar";
+import { getCategoryPosts } from "../../store/actions/post"
 import styled from "styled-components"
 
-const API_URL = process.env.REACT_APP_API_URL
-
-const Home = () => {
+export const CategoryPost = () => {
+    const { slug } = useParams()
+    console.log(slug)
     const dispatch = useDispatch()
     const posts = useSelector((state) => state.post.posts)
 
     useEffect(() => {
         const fn = async () => {
             if (dispatch && dispatch !== null && dispatch !== undefined) {
-                await dispatch(getPosts())
+                await dispatch(getCategoryPosts(slug))
             }
         }
         fn()
@@ -43,13 +44,12 @@ const Home = () => {
     )
 }
 
-export default Home
+export default CategoryPost
 
 const Container = styled.div`
     display: flex;
     width: 100%;
 `
-
 const MainContents = styled.div`
     width: 75%;
         ul {
@@ -61,7 +61,6 @@ const MainContents = styled.div`
             }
         }
 `
-
 const SubContents = styled.div`
     width: 25%;
 `
