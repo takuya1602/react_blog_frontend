@@ -20,15 +20,21 @@ export const Sidebar = () => {
     return (
         categories ? (
             <Container>
-                <ul>
-                    {categories.map((category) => {
-                        return (
-                            <li key={category.id}>
-                                <a href={`/categories/${category.slug}/`}>{category.name}</a>
-                            </li>
-                        )
-                    })}
-                </ul>
+                <p>カテゴリ一覧</p>
+                <CategoryList>
+                    <ul>
+                        {categories.map((category) => {
+                            return (
+                                <li key={category.id}>
+                                    <a href={`/categories/${category.slug}/`}>{category.name}</a>
+                                    <ul>
+                                        { }
+                                    </ul>
+                                </li>
+                            )
+                        })}
+                    </ul>
+                </CategoryList>
             </Container>
         ) : (
             <></>
@@ -37,11 +43,25 @@ export const Sidebar = () => {
 }
 
 const Container = styled.div`
+    p {
+        width: 100px;
+        font-weight: bold;
+        margin: 54px auto 10px auto;
+        text-align: center;
+    }
+`
+
+const CategoryList = styled.div`
+    background-color: #f1f1f1;
+    border-radius: 15px;
     ul {
+        margin: 0;
+        padding: 10px 20px;
         list-style: none;
         li {
             a {
                 text-decoration: none;
+                color: black;
             }
         }
     }

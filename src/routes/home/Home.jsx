@@ -45,6 +45,10 @@ export default Home
 
 const Container = styled.div`
     text-align: center;
+
+    h1 {
+        margin: 20px 0;
+    }
 `
 
 const PostList = styled.div`
