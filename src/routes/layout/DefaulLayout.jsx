@@ -21,7 +21,7 @@ export const DefaulLayout = () => {
 
 const Container = styled.div`
     display: flex;
-    width: 100%;
+    margin: 0 30px 0px 30px;
 `
 
 const MainContents = styled.div`

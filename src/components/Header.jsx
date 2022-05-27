@@ -13,12 +13,20 @@ export const Header = () => {
 
 const Container = styled.header`
     width: 100%;
+    padding: 0;
+    margin: 0;
     text-align: center;
 
     h1 {
+        margin: 0;
+        background-color: #3F4234;
+        padding: 5px 0;
         a {
             text-decoration: none;
-            color: black;
+            font-family: 'Comic Sans MS';
+            color: #D1A827;
+            font-size: 1.6rem;
+
         }
     }
 `

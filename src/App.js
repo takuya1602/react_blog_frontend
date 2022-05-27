@@ -3,10 +3,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import CategoryPost from "./routes/category_post/CategoryPost";
 import Home from "./routes/home/Home";
 import Post from "./routes/post/Post";
-import { Header } from "./components/Header";
-import { Sidebar } from "./components/Sidebar";
-import styled from "styled-components"
-import { SignIn } from "./routes/admin/SignIn";
 import { AdminLayout } from "./routes/layout/AdminLayout";
 import { Admin } from "./routes/admin/Admin";
 import { useSelector } from "react-redux";
