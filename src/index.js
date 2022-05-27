@@ -7,6 +7,7 @@ import { Provider } from "react-redux"
 import thunk from "redux-thunk"
 import postReducer from "./store/reducers/post";
 import categoryReducer from './store/reducers/category';
+import subCategoryReducer from './store/reducers/subCategory';
 
 import './index.css';
 import App from './App';
@@ -17,6 +18,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 const rootReducer = combineReducers({
   post: postReducer,
   category: categoryReducer,
+  subCategory: subCategoryReducer,
   auth: authReducer,
 })
 

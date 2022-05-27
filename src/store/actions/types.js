@@ -14,12 +14,22 @@ export const REMOVE_POST_LOADING = "REMOVE_POST_LOADING"
 
 // Category
 
-// Get list of categories
+// Get list of all categories
 export const GET_CATEGORIES_SUCCESS = "GET_CATEGORIES_SUCCESS"
 export const GET_CATEGORIES_FAIL = "GET_CATEGORIES_FAIL"
 
 export const SET_CATEGORY_LOADING = "SET_CATEGORY_LOADING"
 export const REMOVE_CATEGORY_LOADING = "REMOVE_CATEGORY_LOADING"
+
+// SubCategory
+
+// Get list of all sub-categories
+
+export const GET_SUB_CATEGORIES_SUCCESS = "GET_SUB_CATEGORIES_SUCCESS"
+export const GET_SUB_CATEGORIES_FAIL = "GET_SUB_CATEGORIES_FAIL"
+
+export const SET_SUB_CATEGORY_LOADING = "SET_SUB_CATEGORY_LOADING"
+export const REMOVE_SUB_CATEGORY_LOADING = "REMOVE_SUB_CATEGORY_LOADING"
 
 // Authentication
 
